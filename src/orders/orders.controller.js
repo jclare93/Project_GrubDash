@@ -123,7 +123,7 @@ function routeOrderValidation(req, res, next) {
 }
 
 //creates order given order details + assigns new order id
-function create(req, res, next) {
+function create(req, res) {
     const {data: {deliverTo, mobileNumber, status, dishes} = {}} = req.body
     const newId = nextId()
     const newOrder = {
@@ -138,13 +138,13 @@ function create(req, res, next) {
 }
 
 //response with the data from the order given order id
-function read(req, res, next) {
+function read(req, res) {
     res.json({data: res.locals.order})
 }
 
 
 //updates the old order with the new order details
-function update (req, res, next) {
+function update (req, res) {
     const order = res.locals.order
     const {data: {deliverTo, mobileNumber, status, dishes} = {}} = req.body
     order.deliverTo = deliverTo
@@ -170,7 +170,7 @@ function destroy(req, res, next) {
         }
     }
 
-function list(req, res, next) {
+function list(req, res) {
     res.json({data: orders})
 }
 

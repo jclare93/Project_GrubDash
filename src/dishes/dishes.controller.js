@@ -102,7 +102,7 @@ function priceIsValid (req, res, next){
     }
 }
 //create function for adding an new dish
-function create(req, res, next) {
+function create(req, res) {
     const {data: {name, description, price, image_url} = {}} = req.body;
     const newId = nextId()
     const newDish = {
@@ -121,7 +121,7 @@ function read(req, res, next){
     res.json({ data: res.locals.dish })
 }
 
-function update(req, res, next) {
+function update(req, res) {
     const dish = res.locals.dish
     const {data: {name, description, price, image_url} = {}} = req.body;
     dish.name = name;
